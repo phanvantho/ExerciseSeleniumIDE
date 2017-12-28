@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://demo.guru99.com/" />
+<title>Deposit</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Deposit</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>https://demo.guru99.com/v4/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=uid</td>
+	<td>${UserID}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>${Password}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=btnLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>for</td>
+	<td>i = 0; i &lt;= 10; i++</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Deposit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>name=accountno</td>
+	<td>${Account_ID}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>name=ammount</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>generateTransDes</td>
+	<td></td>
+	<td>TransDes</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>name=desc</td>
+	<td>${TransDes}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=AccSubmit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=p.heading3</td>
+	<td>Transaction details of Deposit for Account ${Account_ID}</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>xpath=//table[@id='deposit']/tbody/tr[6]/td[2]</td>
+	<td>Transaction_ID</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${Transaction_ID}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>endFor</td>
+	<td></td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
